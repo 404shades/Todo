@@ -8,11 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 <style name="AppTheme.FirstTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    <item name="android:windowTranslucentNavigation">true</item>
-    <item name="android:windowTranslucentStatus">true</item>
+    <item name="android:colorPrimaryDark">#26000000</item>
     <item name="windowNoTitle">true</item>
     <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     <item name="android:fitsSystemWindows">true</item>
     <item name="windowActionBar">false</item>
 </style>
+    <style name="AppTheme.ToDoTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="windowNoTitle">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+    <style name="AppTheme.FabButton" parent="Widget.Design.FloatingActionButton">
+        <item name="android:backgroundTint">#03A9F4</item>
+    </style>
 </resources>
