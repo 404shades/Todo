@@ -20,8 +20,24 @@
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
     </style>
     <style name="AppTheme.FabButton" parent="Widget.Design.FloatingActionButton">
         <item name="android:backgroundTint">#03A9F4</item>
+    </style>
+    <style name="ButtonRed" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">50dp</item>
+        <item name="android:paddingRight">50dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:background">@drawable/button_red_selector</item>
+    </style>
+    <style name="AppTheme.AddCategory" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorAccent">#01579B</item>
+        <item name="android:colorPrimary">#01579B</item>
+        <item name="android:colorPrimaryDark">#01579B</item>
     </style>
 </resources>

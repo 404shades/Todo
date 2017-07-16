@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -48,7 +49,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="110dp"
         android:scrollbars="vertical"
-        android:id="@+id/recycler_content"/>
+        android:id="@+id/recycler_content" />
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,4 +57,84 @@
         app:layout_anchorGravity="bottom|right"
         android:layout_margin="15dp"
         android:id="@+id/fab_add_category"/>
+    <com.wunderlist.slidinglayer.SlidingLayer
+        android:id="@+id/slidingLayer1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:elevation="2dip"
+        app:changeStateOnTap="false">
+        <!--slidingLayer:shadowDrawable="@drawable/sidebar_shadow"
+        slidingLayer:shadowSize="@dimen/shadow_size"
+        slidingLayer:offsetDistance="@dimen/offset_distance"
+        slidingLayer:previewOffsetDistance="@dimen/preview_offset_distance"
+        slidingLayer:stickTo="top|bottom|right|left"
+        slidingLayer:changeStateOnTap="true">-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorSexy">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_today"
+                android:id="@+id/category_add_image"
+                android:layout_marginTop="150dp"
+                android:layout_marginLeft="20dp"/>
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@id/category_add_image"-->
+                <!--android:text="Enter List Title"-->
+                <!--android:textColor="#000000"-->
+                <!--android:id="@+id/category_add_title_slide"/>-->
+
+           <AutoCompleteTextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="Enter Category Title"
+               android:theme="@style/AppTheme.AddCategory"
+               android:layout_below="@id/category_add_image"
+               android:id="@+id/add_category_editText"
+               android:layout_marginLeft="20dp"
+               android:completionThreshold="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_category_editText"
+                android:text="Do Not Disturb"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/Donot_disturb"
+                style="@style/TextAppearance.AppCompat.Large"/>
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@id/Donot_disturb"
+                android:id="@+id/Do_Not_Disturb"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Switching On Do not Disturb removes all the Alarms and Notification of ToDo list of Particular category"
+                android:id="@+id/textDisturb"
+                android:layout_below="@id/Donot_disturb"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="10dp"/>
+
+
+            <Button
+                android:id="@+id/buttonClose"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:background="@drawable/ic_done_black_24dp"
+                android:layout_marginBottom="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+    </com.wunderlist.slidinglayer.SlidingLayer>
 </android.support.design.widget.CoordinatorLayout>
