@@ -8,7 +8,7 @@ import android.content.Context;
 /**
  * Created by Rohan Malik on 17-07-2017.
  */
-@Database(entities ={Category_Todo.class},version = 1)
+@Database(entities ={Category_Todo.class,Lists.class},version = 2)
 public abstract class CategoryDatabase extends RoomDatabase {
     private static CategoryDatabase INSTANCE;
     private static Object LOCK = new Object();
@@ -24,5 +24,7 @@ public abstract class CategoryDatabase extends RoomDatabase {
     }
     public static final String DB_NAME="category_db";
     public abstract CategoryDao categoryDao();
+
+    public abstract ListsDao listDao();
 }
 

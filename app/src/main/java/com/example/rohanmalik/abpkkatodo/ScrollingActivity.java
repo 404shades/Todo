@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
@@ -64,6 +65,7 @@ public class ScrollingActivity extends AppCompatActivity {
                 fab.setVisibility(View.GONE);
             }
         });
+        updateGodKanhuBhai();
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
@@ -92,14 +94,46 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String ToDoTitle =  editAutoContacts.getText().toString();
-               listdot = new Lists(ToDoTitle,"Jo marzi");
-                listItems.add(listdot);
-                greenAdapter.notifyItemInserted(listItems.size());
-                mSlidingLayerFuck.closeLayer(true);
-                fab.setVisibility(View.VISIBLE);
+               listdot = new Lists(ToDoTitle);
+                CategoryDatabase db = CategoryDatabase.getInstance(ScrollingActivity.this);
+                final ListsDao daou = db.listDao();
+                new AsyncTask<Void, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(Void... voids) {
+                        daou.insertItems(listdot);
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void aVoid) {
+                        listItems.add(listdot);
+                        greenAdapter.notifyItemInserted(listItems.size());
+                        mSlidingLayerFuck.closeLayer(true);
+                        fab.setVisibility(View.VISIBLE);
+                    }
+                }.execute();
             }
         });
     }
+
+    private void updateGodKanhuBhai() {
+        CategoryDatabase dbo = CategoryDatabase.getInstance(ScrollingActivity.this);
+        final ListsDao daoughing = dbo.listDao();
+        new AsyncTask<Void, Void, List<Lists>>() {
+            @Override
+            protected List<Lists> doInBackground(Void... voids) {
+                return daoughing.getLists();
+            }
+
+            @Override
+            protected void onPostExecute(List<Lists> listses) {
+                listItems.clear();
+                listItems.addAll(listses);
+                greenAdapter.notifyDataSetChanged();
+            }
+        }.execute();
+    }
+
     public void updateLabel() {
         String myFormat = "dd/MM/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
