@@ -7,9 +7,18 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/first"
+        android:src="@drawable/firsta"
         android:scaleType="centerCrop"
         android:contentDescription="@string/app_name"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:hint="Enter Name"
+        android:layout_marginTop="6dp"
+        android:id="@+id/name_category"
+        android:gravity="center"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

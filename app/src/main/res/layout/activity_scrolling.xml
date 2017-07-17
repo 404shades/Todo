@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/todofiba"
+    tools:context="com.example.rohanmalik.abpkkatodo.ScrollingActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="#00796B"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                android:fitsSystemWindows="true"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:id="@+id/list_add_recycle"
+        android:layout_marginTop="180dp">
+    </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/ic_note_add_black_24dp" />
+    <com.wunderlist.slidinglayer.SlidingLayer
+        android:id="@+id/slidingLayer1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:elevation="2dip"
+        android:fitsSystemWindows="false"
+        app:changeStateOnTap="false">
+        <!--slidingLayer:shadowDrawable="@drawable/sidebar_shadow"
+        slidingLayer:shadowSize="@dimen/shadow_size"
+        slidingLayer:offsetDistance="@dimen/offset_distance"
+        slidingLayer:previewOffsetDistance="@dimen/preview_offset_distance"
+        slidingLayer:stickTo="top|bottom|right|left"
+        slidingLayer:changeStateOnTap="true">-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorSexy">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:elevation="@dimen/cardview_compat_inset_shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/TilteCateg"
+                    android:layout_margin="15dp"
+                    style="@style/TextAppearance.AppCompat.Title"/>
+            </android.support.v7.widget.CardView>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_today"
+                android:id="@+id/menuToday"
+                android:layout_marginTop="150dp"
+                android:layout_marginLeft="20dp"/>
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@id/category_add_image"-->
+            <!--android:text="Enter List Title"-->
+            <!--android:textColor="#000000"-->
+            <!--android:id="@+id/category_add_title_slide"/>-->
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Category Title"
+                android:theme="@style/AppTheme.AddCategory"
+                android:layout_below="@id/menuToday"
+                android:id="@+id/add_categoryList_editText"
+                android:layout_marginLeft="20dp"
+                android:completionThreshold="1"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_categoryList_editText"
+                android:src="@android:drawable/ic_menu_today"
+                android:id="@+id/SetDate"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/SetDate"
+                android:hint="Set Date"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/Donot_disturbs"
+                android:focusable="false"
+                style="@style/TextAppearance.AppCompat.Large"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textNote"
+                android:layout_below="@id/Donot_disturbs"
+                android:src="@android:drawable/ic_lock_idle_alarm"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="15dp"/>
+
+
+            <EditText
+                android:id="@+id/textAlarm"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/textNote"
+                android:hint="Go Fuck"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                style="@style/TextAppearance.AppCompat.Large"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:background="#D4000000"
+                android:textColor="#ffffff"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="65dp"
+                android:id="@+id/btn_add_Todo"/>
+
+        </RelativeLayout>
+
+    </com.wunderlist.slidinglayer.SlidingLayer>
+</android.support.design.widget.CoordinatorLayout>

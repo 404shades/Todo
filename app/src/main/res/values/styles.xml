@@ -7,15 +7,17 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-<style name="AppTheme.FirstTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    <item name="android:colorPrimaryDark">#26000000</item>
-    <item name="windowNoTitle">true</item>
-    <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-    <item name="android:fitsSystemWindows">true</item>
-    <item name="windowActionBar">false</item>
-</style>
+
+    <style name="AppTheme.FirstTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimaryDark">#26000000</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
     <style name="AppTheme.ToDoTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    <item name="windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowTranslucentStatus">true</item>
@@ -23,9 +25,11 @@
         <item name="android:windowActionBarOverlay">true</item>
         <item name="android:windowActionModeOverlay">true</item>
     </style>
+
     <style name="AppTheme.FabButton" parent="Widget.Design.FloatingActionButton">
         <item name="android:backgroundTint">#03A9F4</item>
     </style>
+
     <style name="ButtonRed" parent="Widget.AppCompat.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -35,9 +39,24 @@
         <item name="android:textColor">#fff</item>
         <item name="android:background">@drawable/button_red_selector</item>
     </style>
+
     <style name="AppTheme.AddCategory" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorAccent">#01579B</item>
         <item name="android:colorPrimary">#01579B</item>
         <item name="android:colorPrimaryDark">#01579B</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimaryDark">#00796B</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

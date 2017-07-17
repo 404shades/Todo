@@ -30,7 +30,6 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/Thumbnail_name"
                 android:textColor="#ffffff"
-                android:text="Rohan Malik"
                 android:layout_alignBottom="@id/Thumbnail_name"
                 android:padding="15dp"
                 style="@style/TextAppearance.AppCompat.Title"
@@ -129,7 +128,9 @@
                 android:id="@+id/buttonClose"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:background="@drawable/ic_done_black_24dp"
+                android:background="#ffffff"
+                android:textColor="#000000"
+                android:text="Submit"
                 android:layout_marginBottom="60dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true" />

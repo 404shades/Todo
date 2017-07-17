@@ -10,6 +10,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = ["room.schemaLocation":
+//                                                    "$projectDir/schemas".toString()]
+//            }
+//        }
     }
     buildTypes {
         release {
@@ -30,5 +36,8 @@ dependencies {
     compile 'com.android.support:design:26.+'
     compile 'com.android.support:cardview-v7:26.+'
     compile 'com.wunderlist:sliding-layer:1.2.5'
+    compile 'com.bignerdranch.android:simple-item-decoration:1.0.0'
+    compile "android.arch.persistence.room:runtime:1.0.0-alpha3"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha3"
     testCompile 'junit:junit:4.12'
 }

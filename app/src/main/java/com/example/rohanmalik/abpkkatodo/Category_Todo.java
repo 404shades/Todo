@@ -1,18 +1,39 @@
 package com.example.rohanmalik.abpkkatodo;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 /**
  * Created by Rohan Malik on 15-07-2017.
  */
 
+@Entity(tableName="Category")
 public class Category_Todo {
+    @PrimaryKey(autoGenerate = true)
+    private long id;
    private String Title;
     private int thumbNail;
     private int number_category_todo;
+
+    public Category_Todo(long id,String Title, int thumbNail, int number_category_todo) {
+        this.id=id;
+        this.Title = Title;
+        this.thumbNail = thumbNail;
+        this.number_category_todo = number_category_todo;
+    }
 
     public Category_Todo(String title, int thumbNail, int number_category_todo) {
         Title = title;
         this.thumbNail = thumbNail;
         this.number_category_todo = number_category_todo;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
