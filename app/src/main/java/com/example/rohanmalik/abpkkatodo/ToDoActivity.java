@@ -192,6 +192,7 @@ public class ToDoActivity extends AppCompatActivity implements CategoryAdapter.T
         LayerTransformer transformer;
         transformer = new SlideJoyTransformer();
         mSlidingLayer.setLayerTransformer(transformer);
+        mSlidingLayer.setSlidingEnabled(false);
     }
 
     private void setUpSlidingLayerPosition(String left){

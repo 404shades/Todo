@@ -8,7 +8,7 @@ import android.content.Context;
 /**
  * Created by Rohan Malik on 17-07-2017.
  */
-@Database(entities ={Category_Todo.class,Lists.class},version = 2)
+@Database(entities ={Category_Todo.class,Lists.class},version = 3)
 public abstract class CategoryDatabase extends RoomDatabase {
     private static CategoryDatabase INSTANCE;
     private static Object LOCK = new Object();

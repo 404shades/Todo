@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 import com.wunderlist.slidinglayer.SlidingLayer;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -45,6 +46,8 @@ public class ScrollingActivity extends AppCompatActivity {
     EditText dateSet;
     Calendar myCalender;
     Lists listdot;
+    Date date1;
+    String titleCategory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +56,7 @@ public class ScrollingActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         myCalender = Calendar.getInstance();
         dateSet = (EditText)findViewById(R.id.Donot_disturbs);
-        String titleCategory =getIntent().getExtras().getString("TitleCategory");
+        titleCategory =getIntent().getExtras().getString("TitleCategory");
         mSlidingLayerFuck = (SlidingLayer)findViewById(R.id.slidingLayer1);
         setTitle(titleCategory);
         editAutoContacts = (AutoCompleteTextView)findViewById(R.id.add_categoryList_editText);
@@ -90,11 +93,18 @@ public class ScrollingActivity extends AppCompatActivity {
         recycleBrother.setLayoutManager(layoutManager);
         recycleBrother.setAdapter(greenAdapter);
         Button button = (Button)findViewById(R.id.btn_add_Todo);
+        mSlidingLayerFuck.setSlidingEnabled(false);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String ToDoTitle =  editAutoContacts.getText().toString();
-               listdot = new Lists(ToDoTitle);
+                String ToDoDate = dateSet.getText().toString();
+                try {
+                   date1 = new SimpleDateFormat("dd/mm/yyyy").parse(ToDoDate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                listdot = new Lists(ToDoTitle,date1);
                 CategoryDatabase db = CategoryDatabase.getInstance(ScrollingActivity.this);
                 final ListsDao daou = db.listDao();
                 new AsyncTask<Void, Void, Void>() {

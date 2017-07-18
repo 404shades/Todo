@@ -5,6 +5,8 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverter;
+import android.arch.persistence.room.TypeConverters;
 
 import java.util.Date;
 
@@ -14,20 +16,29 @@ import java.util.Date;
 @Entity(foreignKeys = @ForeignKey(entity = Category_Todo.class,
                                 parentColumns = "id",
                                 childColumns = "category_id"))
+@TypeConverters(DateConverter.class)
 public class Lists {
     @PrimaryKey(autoGenerate = true)
             Integer listId;
     String Title;
-//    Date date;
+     Date date;
     @ColumnInfo(name = "category_id")
     String categoryId;
 
     public Lists() {
     }
 
-    public Lists(String title) {
+    public Lists(String title,Date date) {
         Title = title;
-//        this.date = date;
+     this.date = date;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getTitle() {
