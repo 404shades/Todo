@@ -231,5 +231,6 @@ public class ToDoActivity extends AppCompatActivity implements CategoryAdapter.T
                 exit=false;
             }
         },2000);
+
         }
 }
