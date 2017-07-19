@@ -10,7 +10,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName="Category")
 public class Category_Todo {
     @PrimaryKey(autoGenerate = true)
-    private Integer id;
+    private int id;
    private String Title;
     private int thumbNail;
     private int number_category_todo;
@@ -28,11 +28,11 @@ public class Category_Todo {
         this.number_category_todo = number_category_todo;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

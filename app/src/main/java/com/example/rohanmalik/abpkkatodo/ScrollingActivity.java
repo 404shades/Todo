@@ -1,6 +1,7 @@
 package com.example.rohanmalik.abpkkatodo;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
@@ -45,6 +46,8 @@ public class ScrollingActivity extends AppCompatActivity {
     EditText dateSet;
     Calendar myCalender;
     Lists listdot;
+    int categ;
+    String titleCategory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +56,8 @@ public class ScrollingActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         myCalender = Calendar.getInstance();
         dateSet = (EditText)findViewById(R.id.Donot_disturbs);
-        String titleCategory =getIntent().getExtras().getString("TitleCategory");
+        titleCategory =getIntent().getExtras().getString("TitleCategory");
+        categ = getIntent().getExtras().getInt("foreignKey");
         mSlidingLayerFuck = (SlidingLayer)findViewById(R.id.slidingLayer1);
         setTitle(titleCategory);
         editAutoContacts = (AutoCompleteTextView)findViewById(R.id.add_categoryList_editText);
@@ -94,7 +98,7 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String ToDoTitle =  editAutoContacts.getText().toString();
-               listdot = new Lists(ToDoTitle);
+               listdot = new Lists(ToDoTitle,categ);
                 CategoryDatabase db = CategoryDatabase.getInstance(ScrollingActivity.this);
                 final ListsDao daou = db.listDao();
                 new AsyncTask<Void, Void, Void>() {
@@ -122,7 +126,7 @@ public class ScrollingActivity extends AppCompatActivity {
         new AsyncTask<Void, Void, List<Lists>>() {
             @Override
             protected List<Lists> doInBackground(Void... voids) {
-                return daoughing.getLists();
+                return daoughing.getLists(titleCategory);
             }
 
             @Override

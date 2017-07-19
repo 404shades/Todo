@@ -40,6 +40,7 @@ import com.wunderlist.slidinglayer.SlidingLayer;
 import com.wunderlist.slidinglayer.transformer.SlideJoyTransformer;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class ToDoActivity extends AppCompatActivity implements CategoryAdapter.TodoClickListener{
@@ -204,9 +205,9 @@ public class ToDoActivity extends AppCompatActivity implements CategoryAdapter.T
     @Override
     public void onItemClick(View view, int position) {
         Category_Todo category = category_todoList.get(position);
-        Snackbar.make(recyclerView,category.getTitle(),Snackbar.LENGTH_LONG).show();
         intent = new Intent(ToDoActivity.this,ScrollingActivity.class);
         intent.putExtra("TitleCategory",category.getTitle());
+        intent.putExtra("foreignKey",(position+1));
         startActivityForResult(intent,1);
     }
 
@@ -231,4 +232,4 @@ public class ToDoActivity extends AppCompatActivity implements CategoryAdapter.T
             }
         },2000);
         }
-    }
+}

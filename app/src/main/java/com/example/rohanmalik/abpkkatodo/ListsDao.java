@@ -14,6 +14,6 @@ import java.util.List;
 public interface ListsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertItems(Lists lists);
-    @Query("SELECT * FROM Lists")
-    List<Lists> getLists();
+    @Query("SELECT * FROM Lists INNER JOIN Category ON Lists.category_id=Category.id WHERE Category.TITLE = :query")
+    List<Lists> getLists(String query);
 }

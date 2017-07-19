@@ -20,13 +20,14 @@ public class Lists {
     String Title;
 //    Date date;
     @ColumnInfo(name = "category_id")
-    String categoryId;
+    int categoryId;
 
     public Lists() {
     }
 
-    public Lists(String title) {
+    public Lists(String title,int categoryId) {
         Title = title;
+        this.categoryId=categoryId;
 //        this.date = date;
     }
 
@@ -46,11 +47,11 @@ public class Lists {
         this.listId = listId;
     }
 
-    public String getCategoryId() {
+    public int getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
     //    public Date getDate() {
